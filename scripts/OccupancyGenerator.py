@@ -130,7 +130,8 @@ class Mapper(object):
         # messages. If we buffer those messages we will fall behind
         # and end up processing really old scans.  Better to just drop
         # old scans and always work with the most recent available.
-        self.image_sub = rospy.Subscriber("cam/rgb/image_raw",Image,self.callback,queue_size=1)
+        
+        self.image_sub = rospy.Subscriber("cv_camera/image_raw",Image,self.callback,queue_size=1)
         
 
         # Latched publishers are used for slow changing topics like
